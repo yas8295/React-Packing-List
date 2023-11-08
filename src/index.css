@@ -7,3 +7,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+  color: #000;
+  background-color: rgb(55, 53, 53);
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(138, 186, 174);
+  border-radius: 15%;
+}

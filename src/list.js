@@ -22,7 +22,7 @@ export default function List(props) {
 
   return (
     <div
-      className="flex-grow-1 align-items-start justify-content-between px-5 "
+      className="flex-grow-1 align-items-start justify-content-between "
       style={{
         alignItems: "center",
         backgroundColor: "#5a3e2b",
@@ -35,14 +35,13 @@ export default function List(props) {
       }}
     >
       <div
-        className="d-flex flex-wrap justify-content-start w-100 px-5 overflow-auto"
+        className="d-flex flex-wrap justify-content-center w-100 px-4 gap-4 overflow-auto"
         style={{ maxHeight: "185px" }}
       >
         {sort.map((i) => (
           <div
             key={i.id}
-            className="d-flex align-items-center justify-content-center gap-3"
-            style={{ width: "25%" }}
+            className="d-flex align-items-center justify-content-center flex-grow-1 gap-3"
           >
             <input
               onChange={() => props.packed(i.id)}
@@ -57,7 +56,7 @@ export default function List(props) {
             />
             <h1
               className={i.packed ? "packed" : ""}
-              style={{ fontSize: "25px", fontWeight: "500" }}
+              style={{ fontSize: "22px", fontWeight: "500" }}
             >
               {i.qua} {i.des}
             </h1>
@@ -78,7 +77,7 @@ export default function List(props) {
           </div>
         ))}
       </div>
-      <div className="d-flex justify-content-center w-100 gap-5">
+      <div className="d-flex justify-content-center w-100 flex-wrap gap-5">
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
@@ -91,7 +90,7 @@ export default function List(props) {
             fontFamily: "inherit",
             fontSize: "1.5rem",
             fontWeight: 700,
-            padding: "0.8rem 3.2rem",
+            padding: "0.9rem 3.2rem",
             textTransform: "uppercase",
           }}
         >
@@ -111,7 +110,7 @@ export default function List(props) {
             fontFamily: "inherit",
             fontSize: "1.5rem",
             fontWeight: 700,
-            padding: "0.8rem 3.2rem",
+            padding: "0.9rem 3.2rem",
             textTransform: "uppercase",
           }}
         >
