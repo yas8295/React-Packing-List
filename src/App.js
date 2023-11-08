@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Header from "./header";
+import Form from "./form";
+import List from "./list";
+import Stats from "./stats";
 
-function App() {
+export default function App() {
+  const [list, setList] = useState([]);
+
+  function addItems(item) {
+    setList((i) => [...i, item]);
+  }
+
+  function deleteItem(id) {
+    setList((e) => e.filter((i) => i.id !== id));
+  }
+
+  function packed(id) {
+    setList((e) =>
+      e.map((i) =>
+        i.id === id ? { ...i, packed: i.packed ? false : true } : i
+      )
+    );
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="d-flex flex-column vh-100">
+      <Header />
+      <Form addItems={addItems} />
+      <List items={list} packed={packed} delete={deleteItem} clear={setList} />
+      <Stats items={list}></Stats>
     </div>
   );
 }
-
-export default App;
